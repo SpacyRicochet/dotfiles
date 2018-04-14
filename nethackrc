@@ -1,0 +1,5 @@
+OPTIONS=pickup_types:$"?+!=/
+OPTIONS=color
+OPTIONS=pettype:cat, catname:Ninja
+OPTIONS=name:Bruno
+OPTIONS=!cmdassist, msg_window:reversed
