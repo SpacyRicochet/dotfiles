@@ -110,3 +110,5 @@ function install_powerline_precmd() {
 if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export LANG=en_US.UTF-8
