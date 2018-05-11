@@ -1,4 +1,5 @@
-OPTIONS=pickup_types:$"?+!=/
+OPTIONS=pickup_types:$"?!=/
+OPTIONS=autodig
 OPTIONS=color
 OPTIONS=pettype:cat, catname:Ninja
 OPTIONS=name:Bruno
