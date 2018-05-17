@@ -1,6 +1,67 @@
+####
+# Bruno's Nethack Configuration
+####
+
+# Gameplay
 OPTIONS=pickup_types:$"?!=/
 OPTIONS=autodig
 OPTIONS=color
 OPTIONS=pettype:cat, catname:Ninja
 OPTIONS=name:Bruno
 OPTIONS=!cmdassist, msg_window:reversed
+OPTIONS=time
+
+# Monsters
+SYMBOLS=S_boulder:0
+SYMBOLS=S_ghost:X
+
+# Inventory
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn) "=orange&underline
+
+####
+# Status Highlights
+####
+
+OPTIONS=statushilites
+
+# HP
+OPTIONS=hitpointbar
+OPTIONS=hilite_status:hitpoints/100%/grey&normal
+OPTIONS=hilite_status:hitpoints/<100%/green&normal
+OPTIONS=hilite_status:hitpoints/<66%/orange&normal
+OPTIONS=hilite_status:hitpoints/<33%/red&bold
+OPTIONS=hilite_status:hitpoints/<15%/red&inverse
+
+# Power
+OPTIONS=hilite_status:power/100%/grey&normal
+OPTIONS=hilite_status:power/<100%/green&normal
+OPTIONS=hilite_status:power/<66%/orange&normal
+OPTIONS=hilite_status:power/<33%/red&bold
+OPTIONS=hilite_status:power/<15%/red&inverse
+
+# Mental
+OPTIONS=hilite_status:condition/hallu/yellow
+OPTIONS=hilite_status:condition/conf/orange
+OPTIONS=hilite_status:condition/stun/red&bold
+
+# Health
+OPTIONS=hilite_status:condition/termill/red&inverse
+OPTIONS=hilite_status:condition/foodpois/red&inverse
+OPTIONS=hilite_status:condition/slime/red&inverse
+
+# Hunger
+OPTIONS=hilite_status:hunger/satiated/yellow/hungry/orange/weak/red&bold/fainting/red&inverse/starved/red&inverse
+
+# Capacity
+OPTIONS=hilite_status:cap/burdened/yellow/stressed/orange/strained/red&bold/overtaxed/red/overloaded/red&inverse
+
+# Gold
+OPTIONS=hilite_status:gold/up/yellow/down/brown
+
+# Stats
+OPTIONS=hilite_status:characteristics/up/green/down/red
