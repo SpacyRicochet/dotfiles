@@ -6,7 +6,7 @@
 OPTIONS=pickup_types:$"?!=/
 OPTIONS=autodig
 OPTIONS=color
-OPTIONS=pettype:cat, catname:Ninja
+OPTIONS=pettype:cat, catname:Ninja, hilite_pet
 OPTIONS=name:Bruno
 OPTIONS=!cmdassist, msg_window:reversed
 OPTIONS=time
