@@ -10,7 +10,7 @@
   ],
   "cwd": {
     "max_dir_size": 10,
-    "max_depth" : 4,
+    "max_depth" : 1,
     "full_cwd": true
   }
 }
