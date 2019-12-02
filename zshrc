@@ -108,3 +108,9 @@ export LANG=en_US.UTF-8
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# ---
+
+# iTerm 2
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
