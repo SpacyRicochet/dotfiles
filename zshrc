@@ -114,3 +114,31 @@ eval "$(starship init zsh)"
 # iTerm 2
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# ---
+
+# Aliases
+alias ahdiff="${HOME}/Projects/ahold/ecommerce-appie-ios-tools/scripts/verify_failed_snapshot_tests.sh ${HOME}/Projects/ahold/ecommerce-appie-ios-mobile"
+
+# ---
+
+# jENV
+eval export PATH="/Users/brunoscheele/.jenv/shims:${PATH}"
+export JENV_SHELL=zsh
+export JENV_LOADED=1
+unset JAVA_HOME
+source '/usr/local/Cellar/jenv/0.5.3/libexec/libexec/../completions/jenv.zsh'
+jenv rehash 2>/dev/null
+jenv() {
+  typeset command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  enable-plugin|rehash|shell|shell-options)
+    eval `jenv "sh-$command" "$@"`;;
+  *)
+    command jenv "$command" "$@";;
+  esac
+}
