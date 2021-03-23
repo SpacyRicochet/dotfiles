@@ -66,11 +66,11 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>496 486 799 448 0 0 1792 1097 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1792 1097 0 0 1792 1097 </string>
+	<string>0 46 1090 891 0 0 1536 937 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>228 115 1090 783 0 0 1792 1097 </string>
+	<string>0 154 1090 783 0 0 1536 937 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>249 92 1090 783 0 0 1792 1097 </string>
+	<string>158 45 1090 783 0 0 1536 937 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
 	<string>896 0 892 1097 0 0 1792 1097 </string>
 	<key>New Bookmarks</key>
@@ -840,7 +840,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>42</integer>
+			<integer>48</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -914,14 +914,14 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1792, 1120}}</string>
+		<string>{{0, 0}, {1536, 960}}</string>
 		<key>topLeft</key>
-		<string>{502, 1049}</string>
+		<string>{186, 848}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>C7A9CB87-9287-4A6C-9EC9-35EDEFEEC651</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>13</integer>
+	<integer>136</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1648,6 +1648,11 @@
 	</dict>
 	<key>NoSyncSearchHistory2</key>
 	<array>
+		<string>appie-payment-</string>
+		<string>pretty</string>
+		<string>piggyback</string>
+		<string>recommendations</string>
+		<string>swiftlint</string>
 		<string>analytics</string>
 		<string>requesterror</string>
 		<string>requesteror</string>
@@ -1706,6 +1711,8 @@
 	<true/>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>Secure Input</key>
+	<true/>
 	<key>SoundForEsc</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
