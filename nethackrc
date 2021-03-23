@@ -16,12 +16,26 @@ SYMBOLS=S_boulder:0
 SYMBOLS=S_ghost:X
 
 # Inventory
+# lightcyan - good food
+# orange - cursed (or under +0)
+# yellow - not cursed
+# lightgreen - blessed
 OPTIONS=menucolors
-MENUCOLOR=" blessed "=green
-MENUCOLOR=" holy "=green
-MENUCOLOR=" cursed "=red
-MENUCOLOR=" unholy "=red
-MENUCOLOR=" cursed .* (being worn) "=orange&underline
+MENUCOLOR="safe"=yellow
+MENUCOLOR="[0-9]:[0-9]"=yellow
+MENUCOLOR="\+[0-9]"=yellow
+MENUCOLOR="[Cc]ursed"=orange
+MENUCOLOR="[Uu]ncursed"=yellow
+MENUCOLOR="[Bb]lessed"=lightgreen
+MENUCOLOR="-[0-9]"=orange
+
+# underline objects "(wielded)", "(in quiver)", "(being worn)", ...
+MENUCOLOR="safe .* \([a-z]"=yellow&underline
+MENUCOLOR="\+[0-9] .* \([a-z]"=yellow&underline
+MENUCOLOR="[Cc]ursed .* \([a-z]"=orange&underline
+MENUCOLOR="[Uu]ncursed .* \([a-z]"=yellow&underline
+MENUCOLOR="[Bb]lessed .* \([a-z]"=lightgreen&underline
+MENUCOLOR="-[0-9] .* \([a-z]"=orange&underline
 
 ####
 # Status Highlights
