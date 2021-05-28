@@ -107,6 +107,7 @@ export LANG=en_US.UTF-8
 # ---
 
 # Starship prompt
+export STARSHIP_CONFIG=~/.starship.toml
 eval "$(starship init zsh)"
 
 # ---
