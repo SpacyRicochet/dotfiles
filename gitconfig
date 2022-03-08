@@ -11,3 +11,5 @@
 	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [credential]
 	helper = osxkeychain
+[init]
+	defaultBranch = main
