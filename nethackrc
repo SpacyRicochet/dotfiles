@@ -28,6 +28,11 @@ MENUCOLOR="[Cc]ursed"=orange
 MENUCOLOR="[Uu]ncursed"=yellow
 MENUCOLOR="[Bb]lessed"=lightgreen
 MENUCOLOR="-[0-9]"=orange
+MENUCOLOR="holy"=lightcyan
+MENUCOLOR="unholy"=red
+MENUCOLOR="Amulet of Yendor named"=magenta
+MENUCOLOR="gold piece"=yellow
+MENUCOLOR="loadstone\|cancellation"=orange&bold
 
 # underline objects "(wielded)", "(in quiver)", "(being worn)", ...
 MENUCOLOR="safe .* \([a-z]"=yellow&underline
