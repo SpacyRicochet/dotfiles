@@ -25,6 +25,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/cask
 brew tap homebrew/cask-fonts
 
+# Install fancier terminal options
+brea install --cask font-fira-code-nerd-font
+brew install starfish
+
 # Install latest version of git
 brew install git git-lfs
 
