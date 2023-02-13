@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Go to $HOME
+cd
+
+# Get dotfiles and create symlinks for them
+#git clone https://gitlab.com/spacyricochet/dotfiles.git .dotfiles
+ln -s ~/.dotfiles/nethackrc ~/.nethackrc
+ln -s ~/.dotfiles/gitconfig .gitconfig
+ln -s ~/.dotfiles/zprofile .zprofile
+ln -s ~/.dotfiles/zshrc .zshrc
+
+# Install Homebrew and set it in the $PATH
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew tap homebrew/cask
+brew tap homebrew/cask-fonts
+
+# Install latest version of git
+brew install git git-lfs
+
+# Install Swift Mint
+brew install mint
+
+# Install ruby (https://gorails.com/setup/macos/13-ventura)
+brew install libyaml rbenv ruby-build
+# Set rbenv to $PATH immediately
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+rbenv install 3.2.1
+rbenv global 3.2.1
+# Install bundler
+gem install bundler
+
+# Install nvm
+brew install nvm
+mkdir ~/.nvm
+
+# Install common applications
+brew install --cask \
+1password \
+affinity_photo \
+affinity_designer \
+affinity_publisher \
+alfred \
+backblaze \
+daisydisk \
+dash \
+fantastical \
+iterm2 \
+kaleidoscope \
+netnewswire \
+nova \
+proxyman \
+sketch \
+slack \
+tower \
+transmission \
+vlc \
+xcodes
+
+# Create developer and screenshots directory
+mkdir ~/Developer
+mkdir ~/Pictures/Screenshots
