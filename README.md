@@ -16,8 +16,8 @@ git clone https://gitlab.com/spacyricochet/dotfiles.git .dotfiles
 ## Run 'New Mac' scripts
 
 ```
-./dotfiles/scripts/macos_setup
-./dotfiles/scripts/macos_defaults
+./.dotfiles/scripts/macos_setup
+./.dotfiles/scripts/macos_defaults
 defaults write com.apple.dock persistent-apps -array
 ```
 
