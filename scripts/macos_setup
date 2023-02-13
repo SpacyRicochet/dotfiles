@@ -3,6 +3,9 @@
 # Go to $HOME
 cd
 
+# Delete .zprofile as it might have been created by macOS
+rm .zprofile
+
 # Get dotfiles and create symlinks for them
 #git clone https://gitlab.com/spacyricochet/dotfiles.git .dotfiles
 ln -s ~/.dotfiles/nethackrc ~/.nethackrc
@@ -10,7 +13,14 @@ ln -s ~/.dotfiles/gitconfig .gitconfig
 ln -s ~/.dotfiles/zprofile .zprofile
 ln -s ~/.dotfiles/zshrc .zshrc
 
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `macos_setup` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Install Homebrew and set it in the $PATH
+NONINTERACTIVE=1
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew tap homebrew/cask
@@ -38,9 +48,9 @@ mkdir ~/.nvm
 # Install common applications
 brew install --cask \
 1password \
-affinity_photo \
-affinity_designer \
-affinity_publisher \
+affinity-photo \
+affinity-designer \
+affinity-publisher \
 alfred \
 backblaze \
 daisydisk \
