@@ -26,7 +26,9 @@ brew tap homebrew/cask
 brew tap homebrew/cask-fonts
 
 # Install fancier terminal options
-brea install --cask font-fira-code-nerd-font
+brea install --cask \
+font-fira-code-nerd-font \
+font-fira-code
 brew install starfish
 
 # Install latest version of git
