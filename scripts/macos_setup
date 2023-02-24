@@ -34,8 +34,8 @@ brew install starfish
 # Install latest version of git
 brew install git git-lfs
 
-# Install Swift Mint
-brew install mint
+# Install Swift packages
+brew install mint swiftlint swiftformat
 
 # Install ruby (https://gorails.com/setup/macos/13-ventura)
 brew install libyaml rbenv ruby-build
@@ -46,9 +46,11 @@ rbenv global 3.2.1
 # Install bundler
 gem install bundler
 
-# Install nvm
-brew install nvm
+# Install nvm and latest node
+brew install nvm 
 mkdir ~/.nvm
+source ~/.zshrc
+nvm install node
 
 # Install common applications
 brew install --cask \

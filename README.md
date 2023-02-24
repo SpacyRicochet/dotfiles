@@ -78,21 +78,48 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 2. Add service account Github
   1. Use OAuth access token
 
-## Set up applications
+## Set up Mail, Contacts and Calendar
 
-* Safari
-	* Disable 'AutoFill > Username and passwords'
-	* Disable 'AutoFill > Credit cards'
+### Fastmail
+
+* Log in to [Fastmail](https://app.fastmail.com/login/)
+	* Go to ['Settings > Account > Import & Setup'](https://app.fastmail.com/settings/setup/guide/mac/all)
+	* Follow the instructions
+
+### Google
+
+* Open `System settings > Internet Accounts`
+* Add any work-related accounts
+
+## Set up other applications
+
 * 1Password
 	* Sign in
 	* Install the 1Password extension for Safari from App Store
 * Better
 	* Install from App Store
+* Fantastical
+  * Enter 'Fantastical 2' licence key from the main menu item
+	* Log in to any accounts as needed
+	  * Personal (Fastmail)
+		* Work-related (Google)
 * Messages
 	* Enable 'iMessage > Store messages in iCloud'
-* Xcode
-	* Open Xcodes.app
+* Safari
+	* Disable 'AutoFill > Username and passwords'
+	* Disable 'AutoFill > Credit cards'
+* Slack
+  * Log in to all workspaces
+* Xcodes
 	* Sign in to Apple ID using `bruno@noodlewerk.com`
 	* Install latest Xcode
+* Xcode
+	* Log in to developer accounts
 
+## Set up other System Settings
 
+* Lock Screen
+	* Start Screen Saver after 5 minutes
+	* Turn display off on battery after 10 minutes
+	* Turn display off on power after 30 minutes
+	* Require password after display turns off or screen saver starts after 5 minutes
