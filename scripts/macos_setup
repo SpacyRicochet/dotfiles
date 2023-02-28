@@ -35,7 +35,10 @@ brew install starfish
 brew install git git-lfs
 
 # Install Swift packages
-brew install mint swiftlint swiftformat
+brew install \
+mint \
+swiftlint \
+swiftformat
 
 # Install ruby (https://gorails.com/setup/macos/13-ventura)
 brew install libyaml rbenv ruby-build
@@ -74,6 +77,11 @@ tower \
 transmission \
 vlc \
 xcodes
+
+# Install some utilities
+brew install \
+nethack \
+macos-trash
 
 # Create developer and screenshots directory
 mkdir ~/Developer
