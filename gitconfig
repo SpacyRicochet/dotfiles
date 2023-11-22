@@ -1,6 +1,7 @@
 [user]
 	name = Bruno Scheele
 	email = bruno@noodlewerk.com
+	signingkey = key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE4c3KgNx7XDSzCOqm9LrEurEt0l3k2bGr231liSpcuw Git Signing
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -13,3 +14,10 @@
 	helper = osxkeychain
 [init]
 	defaultBranch = main
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+	format = ssh
