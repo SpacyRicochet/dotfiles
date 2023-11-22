@@ -1,86 +1,285 @@
 ####
-# Bruno's Nethack Configuration
+## Bruno's Nethack Configuration
+## - recommended terminal size: 127x37
+## - stolen wholesale from @erynofwales@mastodon.social
 ####
 
-# Gameplay
-OPTIONS=pickup_types:$"?!=/
-OPTIONS=autodig
-OPTIONS=color
-OPTIONS=pettype:cat, catname:Ninja, hilite_pet
+# It me!
 OPTIONS=name:Bruno
-OPTIONS=!cmdassist, msg_window:reversed
-OPTIONS=time
+OPTIONS=catname:Ninja
+OPTIONS=dogname:Lucas
+OPTIONS=horsename:Silver
 
-# Monsters
+# Turn off news and game splash screen
+OPTIONS=!news,!splash_screen
+
+##
+## Interface Stuff
+##
+
+# Use the curses interface with DEC graphics.
+OPTIONS=windowtype:curses,symset:DECgraphics
+# Always show inventory
+OPTIONS=perm_invent
+# Enable colors
+OPTIONS=color,guicolor
+# Use a small popup window instead of the messages window for small messages
+OPTIONS=popup_dialog
+# Use dark gray color instead of blue for dark rooms
+# (I don't think this works with curses though)
+OPTIONS=use_darkgray
+# Make alt work on macOS
+OPTIONS=altmeta
+
+# Show full window of 20 messages
+OPTIONS=msg_window:f
+OPTIONS=msghistory:20
+
+# Highlight pets
+OPTIONS=hilite_pet
+# Bolder shape
+OPTIONS=boulder:0
+# Highlight piles of things
+OPTIONS=hilite_pile
+# Visually distinguish lit vs unlit corridors
+OPTIONS=lit_corridor
+
+# Show a hit point bar over your name
+OPTIONS=hitpointbar
+# Show experience, score, and time (number of steps)
+OPTIONS=showexp,showscore,time
+
+# Just show lists of items
+OPTIONS=menustyle:full
+# Show object symbols in menus
+OPTIONS=menu_objsyms
+
+# Don't bother with number pad
+OPTIONS=number_pad:0
+
+# Automatically dig if I can
+OPTIONS=autodig
+
+# Disclosures at the end of the game:
+# - always show inventory
+# - always show attributes
+# - ask to show monsters killed (default no)
+# - never show genocided
+# - always show conduct
+OPTIONS=disclose:+i +a nv +c -g
+
+##
+## Status Bar
+##
+
+# Colorize the status bar
+OPTIONS=statushilites:10
+# Show gold as yellow
+OPTIONS=hilite_status:gold/always/yellow
+# Highlight hit points with these colors
+OPTIONS=hilite_status:hitpoints/100%/brightgreen
+OPTIONS=hilite_status:hitpoints/<100%/green
+OPTIONS=hilite_status:hitpoints/<60%/yellow
+OPTIONS=hilite_status:hitpoints/<40%/red
+OPTIONS=hilite_status:hitpoints-max/always/green&bold
+# Ability scores have similar highlights
+# Specify multiple cutoffs for all ability scores.
+OPTIONS=hilite_status:characteristics/<5/red
+OPTIONS=hilite_status:characteristics/>6/orange
+OPTIONS=hilite_status:characteristics/>8/brown
+OPTIONS=hilite_status:characteristics/>11/yellow
+OPTIONS=hilite_status:characteristics/>13/green
+OPTIONS=hilite_status:characteristics/>16/cyan
+OPTIONS=hilite_status:characteristics/>18/lightblue
+# Highlight experience changes
+OPTIONS=hilite_status:experience-level/changed/cyan&bold
+# Color all status conditions orange
+OPTIONS=hilite_status:condition/all/orange
+# Color hunger status
+OPTIONS=hilite_status:hunger/always/yellow&bold
+
+##
+## Autopickups
+##
+
+# Auto-pickup safe things
+OPTIONS=autopickup
+OPTIONS=pickup_types:$?!/="+%
+OPTIONS=pickup_burden:unencumbered
+OPTIONS=pickup_thrown
+# Always pick up these
+AUTOPICKUP_EXCEPTION="<Amulet of Yendor named"
+AUTOPICKUP_EXCEPTION="<magic lamp"
+AUTOPICKUP_EXCEPTION="<potion .* healing"
+AUTOPICKUP_EXCEPTION="<potion .* gain level"
+AUTOPICKUP_EXCEPTION="<^the "
+AUTOPICKUP_EXCEPTION="<wand of wishing"
+AUTOPICKUP_EXCEPTION="<wand of death"
+AUTOPICKUP_EXCEPTION="<wand of polymorph"
+# Never pick up these
+AUTOPICKUP_EXCEPTION=">Amulet of Yendor"
+AUTOPICKUP_EXCEPTION="> corpse"
+AUTOPICKUP_EXCEPTION=">flint stone"
+AUTOPICKUP_EXCEPTION=">load stone"
+AUTOPICKUP_EXCEPTION="> named empty"
+AUTOPICKUP_EXCEPTION="> nothing"
+AUTOPICKUP_EXCEPTION=">scroll .* scare monster"
+AUTOPICKUP_EXCEPTION=">:0)"
+AUTOPICKUP_EXCEPTION=">worthless piece of"
+AUTOPICKUP_EXCEPTION=">small glob"
+
+##
+## Menu Colors
+## (heavily sourced from https://alt.org/nethack/userdata/E/Eidolos/Eidolos.nh343rc)
+##
+
+OPTIONS=menucolors
+
+# Beatitude
+# nethack doesn't display "uncursed" if charges are known
+#MENUCOLOR=" \([-0-9]+:[-0-9]+\)"=none
+#MENUCOLOR=" [+-][0-9]"=none
+MENUCOLOR=" blessed| B($| )"=cyan
+MENUCOLOR=" cursed| C($| )"=red&bold
+
+# Water
+MENUCOLOR=" holy water"=cyan&bold
+MENUCOLOR=" blessed clear potion"=cyan&bold
+MENUCOLOR=" blessed potions? called water"=cyan&bold
+MENUCOLOR=" clear potions? named (holy|blessed|B)($| )"=cyan&bold
+MENUCOLOR=" potions? of water named (holy|blessed|B)($| )"=cyan&bold
+MENUCOLOR=" potions? called water named (holy|blessed|B)($| )"=cyan&bold
+MENUCOLOR=" unholy water"=orange
+MENUCOLOR=" cursed clear potion"=orange
+MENUCOLOR=" cursed potions? called water"=orange
+MENUCOLOR=" potions? called water named (unholy|cursed|C)($| )"=orange
+
+# Food
+# vegan
+MENUCOLOR="ration|gunyoki"=green&bold
+MENUCOLOR="lembas wafer|melon|carrot|tins? .* spinach"=green&bold
+MENUCOLOR=" oranges?( named.*)?$"=green&bold
+MENUCOLOR=" pears?( named.*)?$"=green&bold
+MENUCOLOR=" (apple|banana|kelp|eucalyptus|garlic|wolfsbane)"=green&bold
+MENUCOLOR=" ([Rr]aspberry)"=green&bold
+MENUCOLOR="(tins? of )?(gelatinous cube|acid blob|quivering blob)( corpse)?"=green&bold
+MENUCOLOR="(tins? of )?(blue|spotted|ochre) jelly( corpse)?"=green&bold
+MENUCOLOR="(tins? of )?lichen|shrieker|violet fungus|(brown|yellow|green|red) mold( corpse)?"=green&bold
+# vegetarian
+MENUCOLOR="egg|pancake|fortune cookie|candy bar|royal jelly|cream pie|candle"=green
+MENUCOLOR="(tin of )?brown pudding|gray ooze( corpse)?"=green
+# pet food
+MENUCOLOR="tripe ration"=yellow
+
+# Goodies
+MENUCOLOR=" bag .* holding"=magenta
+MENUCOLOR=" luck(stone)?($| )"=magenta
+MENUCOLOR=" wand .* wish(ing)?($| )"=magenta
+MENUCOLOR=" wand .* tele(port(ation)?)?($| )"=magenta
+MENUCOLOR=" wand .* polymorph"=magenta
+MENUCOLOR=" wand .* death"=magenta
+MENUCOLOR=" gain level"=magenta
+MENUCOLOR=" full healing"=magenta
+MENUCOLOR=" magic marker"=magenta
+MENUCOLOR=" magic lamp|lamp .* magic"=magenta
+MENUCOLOR=" unicorn horn[^[]*$"=magenta
+MENUCOLOR=" tinning kit"=magenta
+MENUCOLOR=" ring .* regen(eration)?($| )"=magenta
+MENUCOLOR=" ring .* conflict"=magenta
+MENUCOLOR=" ring .* (FA|free action)($| )"=magenta
+MENUCOLOR=" ring .* (TC|teleport control)($| )"=magenta
+MENUCOLOR=" ring .* lev(itation)?($| )"=magenta
+MENUCOLOR=" scrolls? .* genocide($| )"=magenta
+MENUCOLOR=" scrolls? .* charging($| )"=magenta
+MENUCOLOR=" scrolls? .* identify($| )"=magenta
+MENUCOLOR=" amulet .* (life ?saving|LS)($| )"=magenta
+MENUCOLOR=" amulet .* ref(lection)?($| )"=magenta
+MENUCOLOR=" c(o|hi)ckatrice (corpse|egg)"=magenta
+MENUCOLOR=" egg .* cockatrice"=magenta
+MENUCOLOR=" stethoscope"=magenta
+# instruments
+MENUCOLOR="tooled horn|fire horn|frost horn|horn .* (tooled|fire|frost)"=magenta
+MENUCOLOR=" harp"=magenta
+MENUCOLOR=" bugle"=magenta
+MENUCOLOR=" flute"=magenta
+# unidentified magic armor
+MENUCOLOR="piece of cloth|opera cloak|ornamental cope|tattered cape"=magenta
+MENUCOLOR="plumed helmet|etched helmet|crested helmet|visored helmet"=magenta
+MENUCOLOR="(old|padded|riding|fencing) gloves"=magenta
+MENUCOLOR="(mud|buckled|riding|snow|hiking|combat|jungle) boots"=magenta
+
+# Artifacts
+# unaligned
+MENUCOLOR=" (Dragonbane|Fire Brand|Frost Brand|Ogresmasher|Trollsbane|Werebane)"=lightgreen
+# lawful normal, quest
+MENUCOLOR=" (Demonbane|Excalibur|Grayswandir|Snickersnee|Sunsword)"=lightgreen
+MENUCOLOR=" (Orb of Detection|Sceptre of Might|Magic Mirror of Merlin|Mitre of Holiness|Tsurugi of Muramasa)"=lightgreen
+# neutral normal, quest
+MENUCOLOR=" (Cleaver|Giantslayer|Magicbane|Mjollnir|Vorpal Blade)"=lightgreen
+MENUCOLOR=" (Heart of Ahriman|Staff of Aesculapius|Eyes of the Overworld|Platinum Yendorian Express Card|Orb of Fate|Eye of the Aethiopica)"=lightgreen
+# chaotic normal, quest
+MENUCOLOR=" (Grimtooth|Orcrist|Sting|Stormbringer)"=lightgreen
+MENUCOLOR=" (Longbow of Diana|Master Key of Thievery)"=lightgreen
+# invocation items
+MENUCOLOR=" (Bell of Opening|silver bell|Candelabrum of Invocation|candelabrum|Book of the Dead|papyrus spellbook)"=magenta&bold
+
+# Raison D'Etre
+MENUCOLOR=" Amulet of Yendor named"=lightmagenta&underline
+
+# Cursed Goodies
+MENUCOLOR=" cursed.* bag .* holding"=red&bold
+MENUCOLOR=" cursed.* luck(stone)?($| )"=red&bold
+MENUCOLOR=" cursed.* unicorn horn"=red&bold
+MENUCOLOR=" cursed.* (Bell of Opening|silver bell|Candelabrum of Invocation|candelabrum|Book of the Dead|papyrus spellbook)"=red&bold
+MENUCOLOR="cursed tins? .* spinach|tins? .* spinach .* (cursed|C($| ))"=red
+# loadstones :(
+MENUCOLOR=" load(stone)?($| )"=red&underline
+# watch out, Bag Of Holding!
+MENUCOLOR=" bag .* tricks"=blue&underline
+MENUCOLOR=" wand .*[^!]canc"=blue&underline
+MENUCOLOR=" wand .* vanish"=blue&underline
+
+# Shiny Things
+MENUCOLOR=" gold piece"=yellow
+MENUCOLOR=" valuable"=brown
+MENUCOLOR=" gems? .* hard"=yellow
+# soft gems
+MENUCOLOR=" ([0-9]+|an?|gems? .*) (uncursed |cursed |blessed )?(dilithium|opal|garnet|jasper|agate|jet|obsidian|jade|citrine|chrysoberyl|amber|amethyst|fluorite|turquoise)(e?s)?( stones?| gems?| crystals?)?( named .*)?$"=brown
+# hard gems
+MENUCOLOR=" ([0-9]+|an?|gems?.*) (uncursed |cursed |blessed )?(diamond|rub(y|ies)|jacinth|sapphire|black opal|emerald|topaz|aquamarine)(e?s)?( stones?| gems?)?( named .*)?$"=yellow
+
+# Spell Failure Rates
+MENUCOLOR=" 0%"=white
+MENUCOLOR=" [1-9]%"=cyan
+MENUCOLOR=" [12][0-9]%"=cyan
+MENUCOLOR=" [3-6][0-9]%"=yellow
+MENUCOLOR=" 7[0-5]%"=yellow
+MENUCOLOR=" 7[6-9]%"=orange
+MENUCOLOR=" 8[0-9]%"=orange
+MENUCOLOR=" 9[0-9]%"=red
+MENUCOLOR=" 100%"=red
+# Forgotten Spell
+MENUCOLOR="[a-zA-Z ]+ [0-9]\*   [a-z]+ +[0-9]+%"=magenta
+
+# Enhance
+MENUCOLOR="^ +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
+MENUCOLOR="^ *[a-z] - +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
+MENUCOLOR="^ +\* +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
+MENUCOLOR="^ +# +[a-z -]+ +\[(Unskilled|Basic|Skilled|Expert|Master|Grand Master)\]$"=white
+
+# Ordinary Menu Stuff
+#MENUCOLOR=" is empty. Do what?"=none
+#MENUCOLOR="Put something into .*"=none
+#MENUCOLOR="Take something out of .*"=none
+#MENUCOLOR="unicorn horn.*(Unskilled|Basic|Skilled|Expert)"=none
+#MENUCOLOR="Info on what a given key does."=none
+#MENUCOLOR="Full list of keyboard commands."=none
+#MENUCOLOR="altkeyhandler"=none
+#MENUCOLOR="fruit.*\["=none
+
+##
+## Symbols
+##
+
 SYMBOLS=S_boulder:0
 SYMBOLS=S_ghost:X
-
-# Inventory
-# lightcyan - good food
-# orange - cursed (or under +0)
-# yellow - not cursed
-# lightgreen - blessed
-OPTIONS=menucolors
-MENUCOLOR="safe"=yellow
-MENUCOLOR="[0-9]:[0-9]"=yellow
-MENUCOLOR="\+[0-9]"=yellow
-MENUCOLOR="[Cc]ursed"=orange
-MENUCOLOR="[Uu]ncursed"=yellow
-MENUCOLOR="[Bb]lessed"=lightgreen
-MENUCOLOR="-[0-9]"=orange
-MENUCOLOR="holy"=lightcyan
-MENUCOLOR="unholy"=red
-MENUCOLOR="Amulet of Yendor named"=magenta
-MENUCOLOR="gold piece"=yellow
-MENUCOLOR="loadstone\|cancellation"=orange&bold
-
-# underline objects "(wielded)", "(in quiver)", "(being worn)", ...
-MENUCOLOR="safe .* \([a-z]"=yellow&underline
-MENUCOLOR="\+[0-9] .* \([a-z]"=yellow&underline
-MENUCOLOR="[Cc]ursed .* \([a-z]"=orange&underline
-MENUCOLOR="[Uu]ncursed .* \([a-z]"=yellow&underline
-MENUCOLOR="[Bb]lessed .* \([a-z]"=lightgreen&underline
-MENUCOLOR="-[0-9] .* \([a-z]"=orange&underline
-
-####
-# Status Highlights
-####
-
-OPTIONS=statushilites
-
-# HP
-OPTIONS=hitpointbar
-OPTIONS=hilite_status:hitpoints/100%/grey&normal
-OPTIONS=hilite_status:hitpoints/<100%/green&normal
-OPTIONS=hilite_status:hitpoints/<66%/orange&normal
-OPTIONS=hilite_status:hitpoints/<33%/red&bold
-OPTIONS=hilite_status:hitpoints/<15%/red&inverse
-
-# Power
-OPTIONS=hilite_status:power/100%/grey&normal
-OPTIONS=hilite_status:power/<100%/green&normal
-OPTIONS=hilite_status:power/<66%/orange&normal
-OPTIONS=hilite_status:power/<33%/red&bold
-OPTIONS=hilite_status:power/<15%/red&inverse
-
-# Mental
-OPTIONS=hilite_status:condition/hallu/yellow
-OPTIONS=hilite_status:condition/conf/orange
-OPTIONS=hilite_status:condition/stun/red&bold
-
-# Health
-OPTIONS=hilite_status:condition/termill/red&inverse
-OPTIONS=hilite_status:condition/foodpois/red&inverse
-OPTIONS=hilite_status:condition/slime/red&inverse
-
-# Hunger
-OPTIONS=hilite_status:hunger/satiated/yellow/hungry/orange/weak/red&bold/fainting/red&inverse/starved/red&inverse
-
-# Capacity
-OPTIONS=hilite_status:cap/burdened/yellow/stressed/orange/strained/red&bold/overtaxed/red/overloaded/red&inverse
-
-# Gold
-OPTIONS=hilite_status:gold/up/yellow/down/brown
-
-# Stats
-OPTIONS=hilite_status:characteristics/up/green/down/red
