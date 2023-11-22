@@ -8,6 +8,10 @@
 	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>NeverWarnAboutShortLivedSessions_746150E0-2B1C-4495-A918-41628C8DB3FE</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_746150E0-2B1C-4495-A918-41628C8DB3FE_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -205,7 +209,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>100</integer>
+			<integer>127</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Color</key>
@@ -588,7 +592,7 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>37</integer>
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
@@ -682,6 +686,8 @@
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>SoundForEsc</key>
